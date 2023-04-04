@@ -10,6 +10,8 @@ steps:
       terraform init || exit -1 
       cd /workspace/org/projects/environments/shared
       terraform init || exit -1 
+      cd /workspace/org/orgpolicy/environments/shared
+      terraform init || exit -1 
 # [END tf-init]
 
 # [START tf-plan]
@@ -22,6 +24,8 @@ steps:
       cd /workspace/org/folders/environments/shared
       terraform plan || exit -1 
       cd /workspace/org/projects/environments/shared
+      terraform plan || exit -1 
+      cd /workspace/org/orgpolicy/environments/shared
       terraform plan || exit -1 
 # [END tf-plan]
 
@@ -36,4 +40,6 @@ steps:
       terraform apply -auto-approve
       cd /workspace/org/projects/environments/shared
       terraform apply -auto-approve
+      cd /workspace/org/orgpolicy/environments/shared
+      terraform apply -auto-approve   
 # [END tf-apply]
