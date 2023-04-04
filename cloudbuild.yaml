@@ -1,0 +1,33 @@
+steps:
+# [START tf-init]
+- id: 'tf init'
+  name: 'hashicorp/terraform:1.4'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      cd /workspace/org/folders/environments/shared
+      terraform init || exit -1 
+# [END tf-init]
+
+# [START tf-plan]
+- id: 'tf plan'
+  name: 'hashicorp/terraform:1.4'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+      cd /workspace/org/folders/environments/shared
+      terraform plan || exit -1 
+# [END tf-plan]
+
+# [START tf-apply]
+- id: 'tf apply'
+  name: 'hashicorp/terraform:1.4'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+      cd /workspace/org/folders/environments/shared
+      terraform apply -auto-approve
+# [END tf-apply]
